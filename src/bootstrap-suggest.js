@@ -784,7 +784,11 @@
                             return;
                         }
                     } else if (event.keyCode === options.keyEnter) {
-                        tipsKeyword = getPointKeyword(currentList);
+                        if(!currentList.html()){
+                            tipsKeyword = getPointKeyword($dropdownMenu.find('tbody tr:first').mouseover());
+                        }else{
+                            tipsKeyword = getPointKeyword(currentList);
+                        }
                         $dropdownMenu.hide(); // .empty();
                     } else {
                         setOrGetDataId($input, '');
